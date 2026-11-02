@@ -1,6 +1,7 @@
 """Hash-Toolkit 服务入口。
 
-启动方式：uvicorn app:app --host 127.0.0.1 --port 8000
+启动方式：python app.py
+也可用可选方式：uvicorn app:app --host 127.0.0.1 --port 8000
 浏览器访问 http://127.0.0.1:8000
 """
 
@@ -76,3 +77,9 @@ def index():
 
 
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="127.0.0.1", port=8000)
